@@ -18,8 +18,8 @@ router.get("/searchRestaurant",auth,isUser,searchRestaurant)
 router.get("/searchCuisine",auth,isUser,searchCuisine)
 
 // Restaurant routes
-router.post("/createRes", createRestaurant);
-router.get("/getRes",auth,isUser, getRestaurants);
+router.post("/createRes",auth,isCreater,createRestaurant);
+router.get("/getRes",auth, getRestaurants);
 router.get("/queryRes/:id",auth,isUser,getRestaurantFromCusine )
 
 

@@ -6,7 +6,7 @@ exports.restaurantValidation = async (values) => {
         price: Joi.number().required(),
         address: Joi.string().required(),
         imageFile: Joi.string().uri(), // Assuming this is the URL of the image file
-        token: Joi.string().required() // Assuming this is some form of authentication token
+       
     });
 
     return restaurantValidation.validate(values);

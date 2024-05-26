@@ -12,6 +12,7 @@ exports.createRestaurant = async(req,res)=>{
 
     try {
         // get data from the the req ki body
+         userId = req.user.id
      const {name,address,price} = req.body
      console.log("Request Body:", req.body);
 
