@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { signup, login,getUserDetails,updateUser } = require("../controllers/Auth");
-const { createRestaurant, getRestaurants ,getRestaurantFromCusine } = require("../controllers/resturant/Resturant");
+const { createRestaurant, getRestaurants ,getRestaurantFromCusine,deleteRes } = require("../controllers/resturant/Resturant");
 const { auth, isUser, isCreater } = require("../middleware/auth");
 const {createMenu,getMenuByRestaurantId} = require("../controllers/Menu")
 const {createDishes} = require("../controllers/Dish")
@@ -21,6 +21,7 @@ router.get("/searchCuisine",auth,isUser,searchCuisine)
 router.post("/createRes",auth,isCreater,createRestaurant);
 router.get("/getRes",auth, getRestaurants);
 router.get("/queryRes/:id",auth,isUser,getRestaurantFromCusine )
+router.delete("/deleteRes",deleteRes)
 
 
 // Cusine 

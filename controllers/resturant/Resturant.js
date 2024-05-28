@@ -148,6 +148,41 @@ exports.getRestaurantFromCusine = async(req,res)=>{
         data:data
     })
 
+}
 
 
+
+
+exports.deleteRes = async(req,res)=>{
+
+    try {
+        const  resId = req.query.resId
+   if(!resId) return res.status(400).json({
+    success : false,
+    message : "Res Id does not found"
+   })
+
+
+   const response = await Restaurant.findByIdAndDelete({_id:resId})
+
+   if(!response)  return res.status(400).json({
+    success :false,
+    message : "restaurant cannnot  be delted "
+   })
+
+   return res.status(200).json({
+    success : true,
+    message : "restaurant deleted successfuly"
+   })
+
+        
+    } catch (error) {
+        throw error
+        
+    }
+
+   
+
+
+     
 }
